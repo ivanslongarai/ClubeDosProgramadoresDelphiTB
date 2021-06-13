@@ -1,4 +1,4 @@
-program PrimeiraInterface;
+program WorkingWithInterfaces;
 
 uses
   Vcl.Forms,

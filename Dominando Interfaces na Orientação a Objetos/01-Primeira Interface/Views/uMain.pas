@@ -17,7 +17,10 @@ type
     cbPersonType: TComboBox;
     lbPersonType: TLabel;
     cbClearList: TCheckBox;
+    lbDocumentId: TLabel;
+    edtDocumentId: TEdit;
     procedure btnProcessClick(Sender: TObject);
+    procedure cbPersonTypeCloseUp(Sender: TObject);
   private
     procedure ClearMemo;
     function GetPersonType: TPersonType;
@@ -46,8 +49,18 @@ begin
   TPersonFactory.GetPerson(GetPersonType)
     .Name(edtName.Text)
     .SurName(edtSurName.Text)
+    .DocumentId(edtDocumentId.Text)
     .Display(AddResult)
-    .FullName;
+    .FullName
+    .DocumentId;
+end;
+
+procedure TfrmMain.cbPersonTypeCloseUp(Sender: TObject);
+begin
+  case cbPersonType.ItemIndex of
+    0 : edtDocumentId.Text := '123456789'
+    else edtDocumentId.Text := '12345678901'
+  end;
 end;
 
 procedure TfrmMain.ClearMemo;

@@ -4,8 +4,8 @@ object frmMain: TfrmMain
   ActiveControl = edtName
   BorderStyle = bsDialog
   Caption = 'First Interface'
-  ClientHeight = 214
-  ClientWidth = 294
+  ClientHeight = 330
+  ClientWidth = 319
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,38 +18,45 @@ object frmMain: TfrmMain
   TextHeight = 13
   object lbName: TLabel
     Left = 19
-    Top = 19
+    Top = 9
     Width = 27
     Height = 13
     Caption = 'Name'
   end
   object lbSurname: TLabel
     Left = 155
-    Top = 22
+    Top = 12
     Width = 42
     Height = 13
     Caption = 'Surname'
   end
   object lbPersonType: TLabel
     Left = 19
-    Top = 61
+    Top = 51
     Width = 60
     Height = 13
     Caption = 'Person Type'
   end
+  object lbDocumentId: TLabel
+    Left = 112
+    Top = 51
+    Width = 61
+    Height = 13
+    Caption = 'Document Id'
+  end
   object btnProcess: TButton
-    Left = 201
-    Top = 75
+    Left = 236
+    Top = 65
     Width = 75
     Height = 25
     Caption = 'Ok'
-    TabOrder = 3
+    TabOrder = 4
     OnClick = btnProcessClick
   end
   object edtSurName: TEdit
     Left = 155
-    Top = 38
-    Width = 121
+    Top = 28
+    Width = 156
     Height = 19
     Ctl3D = False
     ParentCtl3D = False
@@ -58,7 +65,7 @@ object frmMain: TfrmMain
   end
   object edtName: TEdit
     Left = 19
-    Top = 36
+    Top = 26
     Width = 121
     Height = 19
     Ctl3D = False
@@ -69,36 +76,45 @@ object frmMain: TfrmMain
   object mmFullName: TMemo
     Left = 19
     Top = 122
-    Width = 257
-    Height = 79
+    Width = 292
+    Height = 191
     TabStop = False
     Ctl3D = False
     ParentCtl3D = False
     ReadOnly = True
     ScrollBars = ssVertical
-    TabOrder = 4
+    TabOrder = 5
   end
   object cbPersonType: TComboBox
     Left = 19
-    Top = 77
-    Width = 121
+    Top = 67
+    Width = 78
     Height = 21
     Style = csDropDownList
     ItemIndex = 0
     TabOrder = 2
     Text = 'Individual'
+    OnCloseUp = cbPersonTypeCloseUp
     Items.Strings = (
       'Individual'
       'Corporate')
   end
   object cbClearList: TCheckBox
-    Left = 22
-    Top = 104
+    Left = 20
+    Top = 102
     Width = 65
     Height = 17
     Caption = 'Clear List'
-    Checked = True
-    State = cbChecked
-    TabOrder = 5
+    TabOrder = 6
+  end
+  object edtDocumentId: TEdit
+    Left = 112
+    Top = 70
+    Width = 108
+    Height = 19
+    Ctl3D = False
+    ParentCtl3D = False
+    TabOrder = 3
+    Text = '123456789'
   end
 end

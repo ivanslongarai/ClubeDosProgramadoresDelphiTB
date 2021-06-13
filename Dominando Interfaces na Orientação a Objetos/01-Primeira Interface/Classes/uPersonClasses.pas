@@ -18,7 +18,7 @@ type
     class function New: IPerson;
   end;
 
-  TCorporationPerson = class(TInterfacedObject, IPerson)
+  TCorporatePerson = class(TInterfacedObject, IPerson)
   private
     FName: string;
     FSurName: string;
@@ -68,36 +68,36 @@ begin
   FSurName := Value;
 end;
 
-{ TCorporationPerson }
+{ TCorporatePerson }
 
-constructor TCorporationPerson.Create;
+constructor TCorporatePerson.Create;
 begin
 
 end;
 
-destructor TCorporationPerson.Destroy;
+destructor TCorporatePerson.Destroy;
 begin
 
   inherited;
 end;
 
-function TCorporationPerson.FullName: string;
+function TCorporatePerson.FullName: string;
 begin
   Result := FName + ' ' + FSurName + ' LTDA' ;
 end;
 
-function TCorporationPerson.Name(Value: string): IPerson;
+function TCorporatePerson.Name(Value: string): IPerson;
 begin
   Result := Self;
   FName := Value;
 end;
 
-class function TCorporationPerson.New: IPerson;
+class function TCorporatePerson.New: IPerson;
 begin
   Result := Self.Create;
 end;
 
-function TCorporationPerson.SurName(Value: string): IPerson;
+function TCorporatePerson.SurName(Value: string): IPerson;
 begin
   Result := Self;
   FSurName := Value;

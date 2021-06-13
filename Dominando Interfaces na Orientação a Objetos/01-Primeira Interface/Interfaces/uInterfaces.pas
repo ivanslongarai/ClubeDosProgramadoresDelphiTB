@@ -1,6 +1,7 @@
 unit uInterfaces;
 
 interface
+  uses uTypes;
 
 type
   IPerson = interface
@@ -11,8 +12,7 @@ type
   end;
 
   TAbsPersonFactory = class
-    class function GetIndividualPerson: IPerson; virtual; abstract;
-    class function GetOrganizationPerson: IPerson; virtual; abstract;
+    class function GetPerson(AType : TPersonType) : IPerson; virtual; abstract;
   end;
 
 implementation

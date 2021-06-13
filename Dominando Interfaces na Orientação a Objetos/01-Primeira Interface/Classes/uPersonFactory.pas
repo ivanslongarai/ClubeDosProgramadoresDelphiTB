@@ -1,18 +1,22 @@
 unit uPersonFactory;
 
 interface
-  uses uInterfaces;
+
+uses uInterfaces, uTypes;
 
 type
   TPersonFactory = class(TAbsPersonFactory)
+  private
+    class function GetIndividualPerson: IPerson;
+    class function GetOrganizationPerson: IPerson;
   public
-    class function GetIndividualPerson: IPerson; override;
-    class function GetOrganizationPerson: IPerson; override;
+    class function GetPerson(AType : TPersonType) : IPerson; Override;
   end;
 
 implementation
+
 uses
- uPersonClasses;
+  uPersonClasses;
 
 { TPersonFactory }
 
@@ -23,7 +27,17 @@ end;
 
 class function TPersonFactory.GetOrganizationPerson: IPerson;
 begin
-  Result := TCorporationPerson.New;
+  Result := TCorporatePerson.New;
+end;
+
+class function TPersonFactory.GetPerson(AType: TPersonType): IPerson;
+begin
+  case AType of
+    tpCorporate:
+      Result := GetOrganizationPerson;
+    tpIndividual:
+      Result := GetIndividualPerson;
+  end;
 end;
 
 end.

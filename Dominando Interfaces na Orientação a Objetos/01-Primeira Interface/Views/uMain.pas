@@ -21,6 +21,7 @@ type
   private
     procedure ClearMemo;
     function GetPersonType: TPersonType;
+    procedure AddResult(AValue : string);
   public
   end;
 
@@ -34,15 +35,19 @@ uses
 {$R *.dfm}
 
 
+procedure TfrmMain.AddResult(AValue: string);
+begin
+  mmFullName.Lines.Add(AValue);
+end;
+
 procedure TfrmMain.btnProcessClick(Sender: TObject);
 begin
   ClearMemo;
-  mmFullName.Lines.Add(
-    TPersonFactory.GetPerson(GetPersonType)
-      .Name(edtName.Text)
-      .SurName(edtSurName.Text)
-      .FullName
-      );
+  TPersonFactory.GetPerson(GetPersonType)
+    .Name(edtName.Text)
+    .SurName(edtSurName.Text)
+    .Display(AddResult)
+    .FullName;
 end;
 
 procedure TfrmMain.ClearMemo;

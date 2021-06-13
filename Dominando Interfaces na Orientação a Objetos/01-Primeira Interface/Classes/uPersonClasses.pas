@@ -2,59 +2,63 @@ unit uPersonClasses;
 
 interface
 
-uses uInterfaces;
+uses uInterfaces, uTypes;
 
 type
-  TIndividualPerson = class(TInterfacedObject, IPerson)
+  TPerson = class(TInterfacedObject, IPerson)
   private
     FName: string;
     FSurName: string;
+    FDisplay: TEventDisplay;
+  public
     function Name(Value: string): IPerson;
     function SurName(Value: string): IPerson;
-    function FullName: string;
-  public
-    Constructor Create;
-    destructor Destroy; override;
-    class function New: IPerson;
+    function FullName: IPerson; virtual; abstract;
+    class function New: IPerson; virtual; abstract;
+    function Display(Value: TEventDisplay): IPerson;
   end;
 
-  TCorporatePerson = class(TInterfacedObject, IPerson)
-  private
-    FName: string;
-    FSurName: string;
-    function Name(Value: string): IPerson;
-    function SurName(Value: string): IPerson;
-    function FullName: string;
+type
+  TIndividualPerson = class(TPerson)
   public
-    Constructor Create;
-    destructor Destroy; override;
-    class function New: IPerson;
+    function FullName: IPerson; override;
+    class function New: IPerson; override;
+  end;
+
+  TCorporatePerson = class(TPerson)
+  public
+    function FullName: IPerson; override;
+    class function New: IPerson; override;
   end;
 
 implementation
 
-{ TIndividualPerson }
+{ TPerson }
 
-constructor TIndividualPerson.Create;
+function TPerson.Display(Value: TEventDisplay): IPerson;
 begin
-
+  Result := Self;
+  FDisplay := Value;
 end;
 
-destructor TIndividualPerson.Destroy;
-begin
-
-  inherited;
-end;
-
-function TIndividualPerson.FullName: string;
-begin
-  Result := FName + ' ' + FSurName;
-end;
-
-function TIndividualPerson.Name(Value: string): IPerson;
+function TPerson.Name(Value: string): IPerson;
 begin
   Result := Self;
   FName := Value;
+end;
+
+function TPerson.SurName(Value: string): IPerson;
+begin
+  Result := Self;
+  FSurName := Value;
+end;
+
+{ TIndividualPerson }
+
+function TIndividualPerson.FullName: IPerson;
+begin
+  if Assigned(FDisplay) then
+    FDisplay(FName + ' ' + FSurName);
 end;
 
 class function TIndividualPerson.New: IPerson;
@@ -62,45 +66,18 @@ begin
   Result := Self.Create;
 end;
 
-function TIndividualPerson.SurName(Value: string): IPerson;
-begin
-  Result := Self;
-  FSurName := Value;
-end;
-
 { TCorporatePerson }
 
-constructor TCorporatePerson.Create;
-begin
-
-end;
-
-destructor TCorporatePerson.Destroy;
-begin
-
-  inherited;
-end;
-
-function TCorporatePerson.FullName: string;
-begin
-  Result := FName + ' ' + FSurName + ' LTDA' ;
-end;
-
-function TCorporatePerson.Name(Value: string): IPerson;
+function TCorporatePerson.FullName: IPerson;
 begin
   Result := Self;
-  FName := Value;
+  if Assigned(FDisplay) then
+    FDisplay(FName + ' ' + FSurName + ' LTDA');
 end;
 
 class function TCorporatePerson.New: IPerson;
 begin
   Result := Self.Create;
-end;
-
-function TCorporatePerson.SurName(Value: string): IPerson;
-begin
-  Result := Self;
-  FSurName := Value;
 end;
 
 end.

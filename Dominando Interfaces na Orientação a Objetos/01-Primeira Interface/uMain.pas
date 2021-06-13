@@ -29,11 +29,22 @@ implementation
 uses uClasses, uInterfaces;
 
 procedure TfrmMain.btnProcessClick(Sender: TObject);
+var
+   LPerson : IPerson;
 begin
-  mmFullName.Lines.Add(
-    TPessoa.New.Name(edtName.Text)
-    .SurName(edtSurName.Text)
-    .FullName);
+
+  mmFullName.Lines.Clear;
+
+  LPerson := TIndividualPerson.New
+    .Name(edtName.Text)
+    .SurName(edtSurName.Text);
+  mmFullName.Lines.Add(LPerson.FullName);
+
+  LPerson := TCorporationPerson.New
+    .Name(edtName.Text)
+    .SurName(edtSurName.Text);
+  mmFullName.Lines.Add(LPerson.FullName);
+
 end;
 
 initialization

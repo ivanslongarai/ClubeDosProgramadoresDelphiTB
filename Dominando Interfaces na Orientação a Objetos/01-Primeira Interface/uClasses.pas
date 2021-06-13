@@ -5,51 +5,99 @@ interface
 uses uInterfaces;
 
 type
-  TPessoa = class(TInterfacedObject, IPessoa)
+  TIndividualPerson = class(TInterfacedObject, IPerson)
   private
     FName: string;
     FSurName: string;
-    function Name(Value: string): IPessoa;
-    function SurName(Value: string): IPessoa;
+    function Name(Value: string): IPerson;
+    function SurName(Value: string): IPerson;
     function FullName: string;
   public
     Constructor Create;
     destructor Destroy; override;
-    class function New : iPessoa;
+    class function New: IPerson;
+  end;
+
+  TCorporationPerson = class(TInterfacedObject, IPerson)
+  private
+    FName: string;
+    FSurName: string;
+    function Name(Value: string): IPerson;
+    function SurName(Value: string): IPerson;
+    function FullName: string;
+  public
+    Constructor Create;
+    destructor Destroy; override;
+    class function New: IPerson;
   end;
 
 implementation
 
-{ TPessoa }
+{ TIndividualPerson }
 
-constructor TPessoa.Create;
+constructor TIndividualPerson.Create;
 begin
 
 end;
 
-destructor TPessoa.Destroy;
+destructor TIndividualPerson.Destroy;
 begin
 
   inherited;
 end;
 
-function TPessoa.FullName: string;
+function TIndividualPerson.FullName: string;
 begin
   Result := FName + ' ' + FSurName;
 end;
 
-function TPessoa.Name(Value: string): IPessoa;
+function TIndividualPerson.Name(Value: string): IPerson;
 begin
   Result := Self;
   FName := Value;
 end;
 
-class function TPessoa.New: iPessoa;
+class function TIndividualPerson.New: IPerson;
 begin
   Result := Self.Create;
 end;
 
-function TPessoa.SurName(Value: string): IPessoa;
+function TIndividualPerson.SurName(Value: string): IPerson;
+begin
+  Result := Self;
+  FSurName := Value;
+end;
+
+{ TCorporationPerson }
+
+constructor TCorporationPerson.Create;
+begin
+
+end;
+
+destructor TCorporationPerson.Destroy;
+begin
+
+  inherited;
+end;
+
+function TCorporationPerson.FullName: string;
+begin
+  Result := FName + ' ' + FSurName + ' LTDA' ;
+end;
+
+function TCorporationPerson.Name(Value: string): IPerson;
+begin
+  Result := Self;
+  FName := Value;
+end;
+
+class function TCorporationPerson.New: IPerson;
+begin
+  Result := Self.Create;
+end;
+
+function TCorporationPerson.SurName(Value: string): IPerson;
 begin
   Result := Self;
   FSurName := Value;

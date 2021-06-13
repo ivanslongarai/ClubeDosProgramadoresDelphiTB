@@ -4,7 +4,7 @@ object frmMain: TfrmMain
   ActiveControl = edtName
   BorderStyle = bsDialog
   Caption = 'Primeira Interface'
-  ClientHeight = 163
+  ClientHeight = 194
   ClientWidth = 294
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -43,7 +43,9 @@ object frmMain: TfrmMain
     Left = 160
     Top = 24
     Width = 121
-    Height = 21
+    Height = 19
+    Ctl3D = False
+    ParentCtl3D = False
     TabOrder = 1
     Text = 'Longarai'
   end
@@ -51,7 +53,9 @@ object frmMain: TfrmMain
     Left = 24
     Top = 24
     Width = 121
-    Height = 21
+    Height = 19
+    Ctl3D = False
+    ParentCtl3D = False
     TabOrder = 0
     Text = 'Ivan'
   end
@@ -59,8 +63,10 @@ object frmMain: TfrmMain
     Left = 24
     Top = 105
     Width = 257
-    Height = 40
+    Height = 56
     TabStop = False
+    Ctl3D = False
+    ParentCtl3D = False
     ReadOnly = True
     TabOrder = 3
   end

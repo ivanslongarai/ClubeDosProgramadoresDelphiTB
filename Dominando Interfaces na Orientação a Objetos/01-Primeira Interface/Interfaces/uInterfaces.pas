@@ -10,6 +10,11 @@ type
     function FullName : string;
   end;
 
+  TAbsPersonFactory = class
+    class function GetIndividualPerson: IPerson; virtual; abstract;
+    class function GetOrganizationPerson: IPerson; virtual; abstract;
+  end;
+
 implementation
 
 end.

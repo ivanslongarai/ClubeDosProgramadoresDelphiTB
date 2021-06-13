@@ -105,11 +105,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uMain.pas">
+        <DCCReference Include="Views\uMain.pas">
             <Form>frmMain</Form>
         </DCCReference>
-        <DCCReference Include="uInterfaces.pas"/>
-        <DCCReference Include="uClasses.pas"/>
+        <DCCReference Include="Classes\uPersonClasses.pas"/>
+        <DCCReference Include="Classes\uPersonFactory.pas"/>
+        <DCCReference Include="Interfaces\uInterfaces.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -136,7 +137,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\PrimeiraInterface.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="exe\PrimeiraInterface.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>PrimeiraInterface.exe</RemoteName>
                         <Overwrite>true</Overwrite>

@@ -2,9 +2,10 @@ program PrimeiraInterface;
 
 uses
   Vcl.Forms,
-  uMain in 'uMain.pas' {frmMain},
-  uInterfaces in 'uInterfaces.pas',
-  uClasses in 'uClasses.pas';
+  uMain in 'Views\uMain.pas' {frmMain},
+  uPersonClasses in 'Classes\uPersonClasses.pas',
+  uPersonFactory in 'Classes\uPersonFactory.pas',
+  uInterfaces in 'Interfaces\uInterfaces.pas';
 
 {$R *.res}
 

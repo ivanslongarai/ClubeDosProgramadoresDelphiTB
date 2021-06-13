@@ -23,27 +23,30 @@ var
   frmMain: TfrmMain;
 
 implementation
+uses
+  uPersonFactory;
 
 {$R *.dfm}
 
-uses uClasses, uInterfaces;
 
 procedure TfrmMain.btnProcessClick(Sender: TObject);
-var
-   LPerson : IPerson;
 begin
 
   mmFullName.Lines.Clear;
 
-  LPerson := TIndividualPerson.New
-    .Name(edtName.Text)
-    .SurName(edtSurName.Text);
-  mmFullName.Lines.Add(LPerson.FullName);
+  mmFullName.Lines.Add(
+    TPersonFactory.GetIndividualPerson
+      .Name(edtName.Text)
+      .SurName(edtSurName.Text)
+      .FullName
+      );
 
-  LPerson := TCorporationPerson.New
-    .Name(edtName.Text)
-    .SurName(edtSurName.Text);
-  mmFullName.Lines.Add(LPerson.FullName);
+  mmFullName.Lines.Add(
+    TPersonFactory.GetOrganizationPerson
+      .Name(edtName.Text)
+      .SurName(edtSurName.Text)
+      .FullName
+      );
 
 end;
 

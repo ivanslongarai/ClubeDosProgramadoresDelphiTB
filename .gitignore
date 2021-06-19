@@ -26,6 +26,9 @@
 #*.obj
 #
 
+# DUnitX Resultados
+dunitx-results.xml
+
 # Delphi compiler-generated binaries (safe to delete)
 *.exe
 *.dll

@@ -27,7 +27,7 @@ end;
 
 function TControllerFactoryQuery.Query(AConnection: IConexao): IQuery;
 begin
-  Result := TQueryFiredac.New(AConnection)
+  Result := TQueryFiredac.New(AConnection);
 end;
 
 end.

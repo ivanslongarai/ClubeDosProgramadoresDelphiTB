@@ -22,6 +22,10 @@ type
     [TestCase('CaseCPF', '123.567.789-00,12356778900')]
     [TestCase('CaseCNPJ', '12.567.789/0001-89,12567789000189')]
     procedure TesteTratarCpfCnpj(AValue: string; AResult: string); overload;
+    [Test]
+    procedure ValidaNome;
+    [Test]
+    procedure ValidarCampos;
   end;
 
 implementation
@@ -44,7 +48,22 @@ var
   Resultado: string;
 begin
   Resultado := FPessoa.TratarCpfCnpj(AValue);
-  Assert.IsTrue(Resultado = AResult, 'TPessoa.TratarCpfCnpj');
+  Assert.AreEqual(Resultado, AResult, 'TPessoa.TratarCpfCnpj');
+  // Da forma abaixo também funcionaria
+  // Assert.IsTrue(Resultado = AResult, 'TPessoa.TratarCpfCnpj');
+end;
+
+procedure TMyTestObject.ValidaNome;
+begin
+  FPessoa.Nome := 'Ivan';
+  Assert.IsNotEmpty(FPessoa.Nome, 'FPessoa.Nome está vazia');
+end;
+
+procedure TMyTestObject.ValidarCampos;
+begin
+  FPessoa.Nome := '';
+  // Para o teste passar tem que levantar a exception
+  Assert.WillRaise(FPessoa.ValidarCampos, nil, 'TPessoa.ValidarCampos');
 end;
 
 procedure TMyTestObject.TesteTratarCpfCnpj;

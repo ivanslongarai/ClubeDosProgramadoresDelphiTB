@@ -3,11 +3,7 @@ unit eConexao.Model.Query.Firedac;
 interface
 
 uses
-  eConexao.Model.Interfaces,
-  Firedac.Stan.Intf, Firedac.Stan.Option,
-  Firedac.Stan.Error, Firedac.UI.Intf, Firedac.Phys.Intf, Firedac.Stan.Def,
-  Firedac.Stan.Pool, Firedac.Stan.Async, Firedac.Phys, Firedac.VCLUI.Wait,
-  Data.DB, Firedac.Comp.Client;
+  eConexao.Model.Interfaces, FireDAC.Comp.Client, Data.DB;
 
 type
   TQueryFiredac = class(TInterfacedObject, IQuery)

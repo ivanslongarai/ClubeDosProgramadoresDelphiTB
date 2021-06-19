@@ -3,11 +3,7 @@ unit eEntidadeA.Controller.Factory.Query;
 interface
 
 uses
-  Firedac.Stan.Intf, Firedac.Stan.Option,
-  Firedac.Stan.Error, Firedac.UI.Intf, Firedac.Phys.Intf, Firedac.Stan.Def,
-  Firedac.Stan.Pool, Firedac.Stan.Async, Firedac.Phys, Firedac.VCLUI.Wait,
-  Data.DB, Firedac.Comp.Client, eEntidadeA.Controller.Factory.Interfaces,
-  eConexao.Model.Interfaces;
+  eEntidadeA.Controller.Factory.Interfaces, eConexao.Model.Interfaces;
 
 type
   TControllerFactoryQuery = class(TInterfacedObject, IFactoryQuery)
@@ -20,8 +16,7 @@ type
 implementation
 
 uses
-  System.SysUtils, eConexao.Model.Conexao.Firedac,
-  eConexao.Model.Query.Firedac;
+  System.SysUtils, eConexao.Model.Query.Firedac;
 
 { TControllerFactoryQuery }
 

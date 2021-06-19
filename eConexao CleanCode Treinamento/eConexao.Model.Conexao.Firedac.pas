@@ -3,11 +3,7 @@ unit eConexao.Model.Conexao.Firedac;
 interface
 
 uses
-  eConexao.Model.Interfaces,
-  Firedac.Stan.Intf, Firedac.Stan.Option,
-  Firedac.Stan.Error, Firedac.UI.Intf, Firedac.Phys.Intf, Firedac.Stan.Def,
-  Firedac.Stan.Pool, Firedac.Stan.Async, Firedac.Phys, Firedac.VCLUI.Wait,
-  Data.DB, Firedac.Comp.Client;
+  eConexao.Model.Interfaces, FireDAC.Comp.Client, Data.DB;
 
 type
   TConexaoFiredac = class(TInterfacedObject, IConexao)
@@ -17,7 +13,7 @@ type
     constructor Create;
     destructor Destroy; override;
     class function New: IConexao;
-    function Conexao: TCustomConnection;
+    function Conexao: TCustomConnection;
   end;
 
 implementation

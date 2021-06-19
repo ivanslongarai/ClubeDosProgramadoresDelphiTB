@@ -1,1 +1,1 @@
-##### Repositório dos arquivos dos cursos do Clube de Programadores Delphi Thulio Bittencourt
+##### Repositório dos arquivos que criei dos cursos do Clube de Programadores Delphi - Thulio Bittencourt

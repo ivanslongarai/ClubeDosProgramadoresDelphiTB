@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="djd96ik34nr9d0emh_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::oszgglvfomn_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,218,134" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:TreinamentoEspecialistaPOO.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::7t2apyyvwas_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="260,0,180,180" />
+      <property name="hideClass" value="True" />
+      <property name="location_set_by_user" value="True" />
+      <property name="bounds_setted_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TfrmMain" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGarrafa" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TLivro" />
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TAutor">
+        <property name="bounds" value="55,-45,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGibi">
+        <property name="bounds" value="75,-65,0,0" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGarrafa">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="20,200,127,131" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Cor" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Modelo" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Tampa" />
+      <reference referencedUin="delphi:e_method:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.ArmazenarLiquido(System.string)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TLivro">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="240,200,200,260" />
+      <property name="location_set_by_user" value="True" />
+      <property name="bounds_setted_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TLivro.Nome" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TLivro.Autor">
+        <property name="bounds" value="35,5,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:TreinamentoEspecialistaPOO:uMain.TLivro.Paginacao(System.string)">
+        <property name="bounds" value="15,-2,0,0" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TAutor">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="520,80,151,256" />
+      <property name="location_set_by_user" value="True" />
+      <property name="bounds_setted_by_user" value="True" />
+      <reference referencedUin="delphi:l_ast:src:TreinamentoEspecialistaPOO:uMain.TAutor.TLivro">
+        <property name="sourceAnchor" value="520,268" />
+        <property name="targetAnchor" value="440,268" />
+        <property name="bendpoints" value="" />
+      </reference>
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TAutor.TLivro" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGibi">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="520,400,86,67" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:l_gnt:src:TreinamentoEspecialistaPOO:uMain.TGibi:uMain.TLivro">
+        <property name="sourceAnchor" value="520,430" />
+        <property name="targetAnchor" value="440,430" />
+        <property name="bendpoints" value="" />
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

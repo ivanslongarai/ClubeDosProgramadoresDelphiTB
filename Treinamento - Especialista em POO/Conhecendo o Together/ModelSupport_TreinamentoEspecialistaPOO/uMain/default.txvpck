@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="7t2apyyvwas_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.@unitclass">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.@unitclass.frmMain" />
+      <reference referencedUin="delphi:l_ast:src:TreinamentoEspecialistaPOO:uMain.@unitclass.frmMain" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TfrmMain">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="311,137,0,0" />
+      <reference referencedUin="delphi:e_method:src:TreinamentoEspecialistaPOO:uMain.TfrmMain.FormCreate(System.TObject)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGarrafa">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Cor" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Modelo" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.Tampa" />
+      <reference referencedUin="delphi:e_method:src:TreinamentoEspecialistaPOO:uMain.TGarrafa.ArmazenarLiquido(System.string)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TLivro">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TLivro.Nome" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TLivro.Autor" />
+      <reference referencedUin="delphi:e_method:src:TreinamentoEspecialistaPOO:uMain.TLivro.Paginacao(System.string)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TAutor">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:TreinamentoEspecialistaPOO:uMain.TAutor.TLivro" />
+      <reference referencedUin="delphi:l_ast:src:TreinamentoEspecialistaPOO:uMain.TAutor.TLivro" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:TreinamentoEspecialistaPOO:uMain.TGibi">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:l_gnt:src:TreinamentoEspecialistaPOO:uMain.TGibi:uMain.TLivro" />
+    </reference>
+  </view>
+</nodeSet>

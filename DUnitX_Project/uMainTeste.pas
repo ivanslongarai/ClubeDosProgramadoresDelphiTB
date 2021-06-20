@@ -7,13 +7,14 @@ unit uMainTeste;
 interface
 
 uses
-  DUnitX.TestFramework, uPessoa, uPessoaDAO;
+  DUnitX.TestFramework, uPessoa, uPessoaDAO, Delphi.Mocks;
 
 type
 
   [TestFixture]
   TMyTestObject = class(TObject)
   private
+    Mock: TMock<ISession>;
     FPessoa: TPessoa;
     FPessoaDAO: TPessoaDAO;
   public
@@ -38,7 +39,7 @@ type
 implementation
 
 uses
-  System.SysUtils, Delphi.Mocks;
+  System.SysUtils;
 
 procedure TMyTestObject.OperacoesBanco;
 var
@@ -83,8 +84,10 @@ end;
 procedure TMyTestObject.Setup;
 begin
   FPessoa := TPessoa.Create;
+  Mock := TMock<ISession>.Create;
+  Mock.Setup.WillReturn('UserTest'); //Classes Fakes com Delphi Mocks
   // Delphi.Mocks implementa a injeção de dependência de forma que possamos testar a classe sem termos que implementar a interface nós mesmos
-  FPessoaDAO := TPessoaDAO.Create(TStub<ILog>.Create);
+  FPessoaDAO := TPessoaDAO.Create(TStub<ILog>.Create, Mock);
 end;
 
 procedure TMyTestObject.TearDown;
@@ -125,5 +128,6 @@ end;
 initialization
 
 TDUnitX.RegisterTestFixture(TMyTestObject);
+ReportMemoryLeaksOnShutdown := True;
 
 end.

@@ -17,13 +17,19 @@ type
     procedure GravarLog(ALog: string);
   end;
 
+  ISession = interface
+    ['{3721EC59-7F93-4218-BDEA-AEB47BB87A80}']
+    function User: string;
+  end;
+
   TPessoaDAO = class
   private
     FPessoa: TPessoa;
     FQuery: TFDQuery;
     FLog: ILog;
+    FSession: ISession;
   public
-    constructor Create(ALog: ILog);
+    constructor Create(ALog: ILog; ASession: ISession);
     destructor Destroy; override;
     function Entidade: TPessoa;
     procedure ValidarCampos;
@@ -57,13 +63,15 @@ begin
   end;
 end;
 
-constructor TPessoaDAO.Create(ALog: ILog);
+constructor TPessoaDAO.Create(ALog: ILog; ASession: ISession);
 begin
   if not Assigned(DM) then
     DM := TDM.Create(Application);
   FPessoa := TPessoa.Create;
   FQuery := DM.FDQuery;
   FLog := ALog;
+  FSession := ASession;
+  FLog.GravarLog('User: ' + ASession.User);
 end;
 
 procedure TPessoaDAO.Delete;

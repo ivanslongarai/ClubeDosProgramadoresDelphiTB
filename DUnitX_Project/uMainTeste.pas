@@ -1,9 +1,11 @@
 unit uMainTeste;
 
+// Added the https://github.com/VSoftTechnologies/Delphi-Mocks Content on the project's search path
+
 interface
 
 uses
-  DUnitX.TestFramework, uPessoa;
+  DUnitX.TestFramework, uPessoa, uPessoaDAO;
 
 type
 
@@ -11,6 +13,7 @@ type
   TMyTestObject = class(TObject)
   private
     FPessoa: TPessoa;
+    FPessoaDAO: TPessoaDAO;
   public
     [Setup]
     procedure Setup;
@@ -26,6 +29,8 @@ type
     procedure ValidaNome;
     [Test]
     procedure ValidarCampos;
+    [Test]
+    procedure OperacoesBanco;
   end;
 
 implementation
@@ -33,14 +38,56 @@ implementation
 uses
   System.SysUtils;
 
+procedure TMyTestObject.OperacoesBanco;
+var
+  newId: Integer;
+  dataNasc: TDateTime;
+
+begin
+
+  newId := FPessoaDAO.getNextId();
+  dataNasc := Now;
+
+  // Testa Update
+  FPessoaDAO.Entidade.Id := newId;
+  FPessoaDAO.Entidade.Nome := 'Ivan';
+  FPessoaDAO.Entidade.SobreNome := 'Longarai';
+  FPessoaDAO.Entidade.Idade := 30;
+  FPessoaDAO.Entidade.DataNascimento := dataNasc;
+  FPessoaDAO.Entidade.CpfCnpj := '744.521.876-96';
+  FPessoaDAO.Insert;
+
+  FPessoaDAO.BuscarId(newId.ToString);
+
+  Assert.IsTrue(FPessoaDAO.Entidade.Id = newId, 'TPessoaDAO.Insert.Id');
+  Assert.IsTrue(FPessoaDAO.Entidade.Nome = 'Ivan', 'TPessoaDAO.Insert.Nome');
+  Assert.IsTrue(FPessoaDAO.Entidade.SobreNome = 'Longarai', 'TPessoaDAO.Insert.SobreNome');
+  Assert.IsTrue(FPessoaDAO.Entidade.Idade = 30, 'TPessoaDAO.Insert.Idade');
+  Assert.IsTrue(FPessoaDAO.Entidade.DataNascimento = dataNasc, 'TPessoaDAO.Insert.DataNascimento');
+  Assert.IsTrue(FPessoaDAO.Entidade.CpfCnpj = '74452187696', 'TPessoaDAO.Insert.CpfCnpj');
+
+  // Testa Update
+  FPessoaDAO.Entidade.Id := newId;
+  FPessoaDAO.Entidade.Nome := 'Ivan2';
+  FPessoaDAO.Update;
+  Assert.IsTrue(FPessoaDAO.Entidade.Nome = 'Ivan2', 'TPessoaDAO.Update.Nome');
+
+  // Testa Delete
+  FPessoaDAO.Delete;
+  Assert.IsTrue(FPessoaDAO.idExists(newId.ToString) = False, 'TPessoaDAO.Delete');
+
+end;
+
 procedure TMyTestObject.Setup;
 begin
   FPessoa := TPessoa.Create;
+  FPessoaDAO := TPessoaDAO.Create;
 end;
 
 procedure TMyTestObject.TearDown;
 begin
   FreeAndNil(FPessoa);
+  FreeAndNil(FPessoaDAO);
 end;
 
 procedure TMyTestObject.TesteTratarCpfCnpj(AValue, AResult: string);

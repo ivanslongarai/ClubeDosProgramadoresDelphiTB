@@ -2,15 +2,28 @@ unit uPessoaDao;
 
 interface
 
+{$M+}
+// The {$M} switch directive controls generation of
+// run-time type information (RTTI). When a class is declared in the
+// {$M+} state, or is derived from a class that was declared in the
+// {$M+} state, the compiler generates run-time type information for
+// properties and events that are declared in a published section.
+
 uses uDM, uPessoa, FireDAC.Comp.Client, Data.DB;
 
 type
+  ILog = interface
+    ['{BAE54EC2-403F-4457-9560-0F45317A10F5}']
+    procedure GravarLog(ALog: string);
+  end;
+
   TPessoaDAO = class
   private
     FPessoa: TPessoa;
     FQuery: TFDQuery;
+    FLog: ILog;
   public
-    constructor Create;
+    constructor Create(ALog: ILog);
     destructor Destroy; override;
     function Entidade: TPessoa;
     procedure ValidarCampos;
@@ -44,12 +57,13 @@ begin
   end;
 end;
 
-constructor TPessoaDAO.Create;
+constructor TPessoaDAO.Create(ALog: ILog);
 begin
   if not Assigned(DM) then
     DM := TDM.Create(Application);
   FPessoa := TPessoa.Create;
   FQuery := DM.FDQuery;
+  FLog := ALog;
 end;
 
 procedure TPessoaDAO.Delete;

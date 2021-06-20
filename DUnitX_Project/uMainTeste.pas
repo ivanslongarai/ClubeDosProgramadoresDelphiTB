@@ -1,6 +1,8 @@
 unit uMainTeste;
 
 // Added the https://github.com/VSoftTechnologies/Delphi-Mocks Content on the project's search path
+// (C:\Delphi-Mocks\Delphi-Mocks\Source)
+// Cloned into C:\Delphi-Mocks\Delphi-Mocks
 
 interface
 
@@ -36,7 +38,7 @@ type
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils, Delphi.Mocks;
 
 procedure TMyTestObject.OperacoesBanco;
 var
@@ -81,7 +83,8 @@ end;
 procedure TMyTestObject.Setup;
 begin
   FPessoa := TPessoa.Create;
-  FPessoaDAO := TPessoaDAO.Create;
+  // Delphi.Mocks implementa a injeção de dependência de forma que possamos testar a classe sem termos que implementar a interface nós mesmos
+  FPessoaDAO := TPessoaDAO.Create(TStub<ILog>.Create);
 end;
 
 procedure TMyTestObject.TearDown;
@@ -96,8 +99,6 @@ var
 begin
   Resultado := FPessoa.TratarCpfCnpj(AValue);
   Assert.AreEqual(Resultado, AResult, 'TPessoa.TratarCpfCnpj');
-  // Da forma abaixo também funcionaria
-  // Assert.IsTrue(Resultado = AResult, 'TPessoa.TratarCpfCnpj');
 end;
 
 procedure TMyTestObject.ValidaNome;

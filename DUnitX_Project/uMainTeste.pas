@@ -3,6 +3,7 @@ unit uMainTeste;
 // Added the https://github.com/VSoftTechnologies/Delphi-Mocks Content on the project's search path
 // (C:\Delphi-Mocks\Delphi-Mocks\Source)
 // Cloned into C:\Delphi-Mocks\Delphi-Mocks
+// It was also used testinsight from https://bitbucket.org/sglienke/testinsight/wiki/Home
 
 interface
 

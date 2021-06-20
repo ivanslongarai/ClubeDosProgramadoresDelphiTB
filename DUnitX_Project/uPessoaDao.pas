@@ -86,6 +86,7 @@ end;
 
 destructor TPessoaDAO.Destroy;
 begin
+  FreeAndNil(FPessoa);
   inherited;
 end;
 

@@ -1,0 +1,18 @@
+Virtual - Maior Performance - Mais consumo de memória (Mais utilizado!).
+Dinamic - Menor Performance - Menos uso de mémoria.
+VMT = Virtual Method Table
+
+Informação do site Devmedia:
+https://www.devmedia.com.br/forum/metodo-virtual-e-dynamic/435414
+
+No Delphi, há basicamente duas maneiras diferentes se usar a ligação tardia com um método. Você pode declarar o método como virtual, vimos anteriormente, ou declará-lo como dinâmico. A sintaxe destas palavras-chave é exatamente a mesma, e o resultado de seu uso também é o mesmo. O que é diferente é o mecanismo interno usado pelo compilador para implementar a ligação dinâmica.
+
+Os métodos virtuais baseiam-se numa tabela de métodos vrituais (Virtual Method Table – VMT), também conhecida como vtable (do jargão da linguagem C++). Uma tabela de métodos virtuais é uma coleção de endereços de métodos. Para uma chamada a um método virtual, o compilador gera código para pular para um endereço armazenado no enésimo slot da tabela de métodos virtuais do objeto. O compilador determina o índice na tabela procurando pelo tipo de objeto em tempo de execução, geralmente armazenado como um número dentro do mesmo objeto.
+
+As tabelas de métodos virtuais permitem uma rápida execução das chamadas a métodos. O principal inconveniente é que elas exigem uma entrada para cada método virtual de cada classe descendente, mesmo que o método não seja anulado na classe descendente. Às vezes, isto tem o efeito de propagar entradas de tabelas de métodos virutais (até mesmo para métodos que não são anulados) ao longo de sua hierarquia de classes. Será necessária uma enorme quantidade de memória para armazenar o mesmo endereço de método um grande número de vezes.
+
+As chamadas de métodos dinâmicos, por outro lado, são despachadas usando um único código indicando o método. A procura da função correspondente geralmente é mais lenta do que a pesquisa de tabela simples de um só passo dos métodos virtuais. A vantagem é que as entradas de método dinâmicas somente se propagam nas descendentes quando estas ignoram o método. Para hierarquias de objetos grandes ou profundas, o uso de métodos dinâmicos em vez de métodos virtuais pode resultar em significativas economias de memória e causar apenas uma mínima perda de velocidade.
+
+A partir da perspectiva do programador, a diferença entre estas duas abordagens repousa somente numa representação interna diferente e uma velocidade ou uso de memória ligeiramente diferente. Fora isto, os métodos virtuais e dinâmicos são a mesma coisa.
+
+Eis uma regra empírica geral: se o método for anulado por quase todas as descendentes, torne-o virtual. Se o método não for anulado muito frequentemente, mas ainda precisar de ligação tardia para obter flexibilidade, torne-o dinâmico, especialmente se houver muitas classes descendentes. Se o método for muito chamado (por exemplo, centenas de vezes por segundo), torne-o virtual. Caso contrário, torne-o dinâmico. Obviamente, isto pressupõe que você já tenha decidido que o método deve ter uma ligação tardia. Métodos não-virtuais são a forma mais rápida de despachar o método.

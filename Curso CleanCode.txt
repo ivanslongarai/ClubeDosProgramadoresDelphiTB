@@ -1,0 +1,34 @@
+CERTIFICAÇÃO ESPECIALISTA EM CLEAN CODE E BOAS PRÁTICAS DE PROGRAMAÇÃO
+
+Aula 01 - O Custo de ter um código Confuso
+Aula 02 - Um ecossistema mau construído
+Aula 03 - A Reconstrução
+Aula 04 - O que é um código limpo
+Aula 05 - SOLID
+Aula 06 - SOLID | SRP - Princípio da Responsabilidade Única
+Aula 07 - SOLID | OCP Princípio do Aberto e Fechado
+Aula 08 - SOLID | LSP Princípio de Substituição de Liskov
+Aula 09 - SOLID | ISP Princípio da Segregação de Interfaces
+Aula 10 - SOLID | DIP Princípio da Inversão de Dependência
+Aula 11 - Nomenclaturas
+Aula 12 - Métodos e Funções
+Aula 13 - Comentários
+Aula 14 - Formatação
+Aula 15 - Objetos e Estruturas de Dados
+Aula 16 - Limites na utilização de terceiros
+Aula 17 - Testes de Unidades
+Aula 18 - Classes
+Aula 19 - Ilustração do Sistema
+Aula 20 - Emergências O Projeto Simples de Kent Beck
+Aula 21 - Concorrência
+Aula 22 - Refinamento Sucessivo
+Aula 23 - Mau cheiro no código
+Aula 24 - Meu primeiro Teste com DUnitX
+Aula 25 - CaseTest
+Aula 26 - AreEquals e IsNotEmpty
+Aula 27 - WillRaise
+Aula 28 - Preparando Units para Teste com Banco de Dados
+Aula 29 - Realizando Teste em Inserção no Banco de Dados
+Aula 30 - Delphi Mocks TStub para Injeção de Dependencia
+Aula 31 - Classes Fakes com Delphi Mocks
+Aula 32 - TestInsight

@@ -2,10 +2,82 @@
 	"hash": "d41d8cd98f00b204e9800998ecf8427e",
 	"updated": "2021-06-21T08:05:22.1555278-03:00",
 	"installedModules": {
+		"github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.3.1",
+			"hash": "7d7b64e27f7fbed029362b73f5bf21a4",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/restrequest4delphi": {
+			"name": "restrequest4delphi",
+			"version": "v3.0.6",
+			"hash": "c113a36fa794862991b7d85d8a23053a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/bittencourtthulio/aws4d": {
+			"name": "aws4d",
+			"version": "1.0.7",
+			"hash": "12e19c045cd2dc38cc483e2c3cd7c47b",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/bittencourtthulio/bind4d": {
+			"name": "bind4d",
+			"version": "1.0.18",
+			"hash": "c1c7c0af502e61567aeca9a6a6e08273",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/bittencourtthulio/hstorage4d": {
+			"name": "hstorage4d",
+			"version": "1.0.2",
+			"hash": "3cf606bddab3b3f310daf0952e28dddd",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/bittencourtthulio/localcache4d": {
+			"name": "localcache4d",
+			"version": "1.0.4",
+			"hash": "78a7747cc7f2f79822d67610672800a5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"https://github.com/bittencourtthulio/router4delphi": {
 			"name": "router4delphi",
 			"version": "1.0.6",
 			"hash": "5e77550c45e734fd4e24e4d9165343e9",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/bittencourtthulio/translator4d": {
+			"name": "translator4d",
+			"version": "1.0.4",
+			"hash": "a952ed310e4f8770b0eef08a7b9c5967",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.3.1",
+			"hash": "7d7b64e27f7fbed029362b73f5bf21a4",
+			"artifacts": {},
+			"failed": false,
+			"changed": true
+		},
+		"https://github.com/viniciussanchez/restrequest4delphi": {
+			"name": "restrequest4delphi",
+			"version": "v3.0.6",
+			"hash": "c113a36fa794862991b7d85d8a23053a",
 			"artifacts": {},
 			"failed": false,
 			"changed": false

@@ -1,0 +1,49 @@
+object frmPagePrincipal: TfrmPagePrincipal
+  Left = 0
+  Top = 0
+  Align = alClient
+  BorderStyle = bsNone
+  Caption = 'frmPagePrincipal'
+  ClientHeight = 240
+  ClientWidth = 463
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlClient: TPanel
+    Left = 0
+    Top = 0
+    Width = 463
+    Height = 240
+    Align = alClient
+    BevelOuter = bvNone
+    Padding.Top = 15
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitWidth = 447
+    ExplicitHeight = 202
+    object lbTitle: TLabel
+      Left = 0
+      Top = 15
+      Width = 463
+      Height = 33
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'P'#225'gina Principal'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ExplicitWidth = 186
+    end
+  end
+end

@@ -61,7 +61,8 @@
         <SanitizedProjectName>DelphiToHero</SanitizedProjectName>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-    <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;$(DCC_UnitSearchPath);modules;modules\router4delphi\src</DCC_UnitSearchPath></PropertyGroup>
+        <DCC_UnitSearchPath>$(DCC_UnitSearchPath);modules\.dcp;modules\.dcu;modules;modules\aws4d\src;modules\bind4d\Sample;modules\bind4d\Sample\fmx;modules\bind4d\src;modules\bind4d\src\Forms;modules\dataset-serialize\src;modules\hstorage4d\src;modules\localcache4d\samples\LocalCache4D;modules\localcache4d\src;modules\restrequest4delphi\src;modules\router4delphi\src;modules\translator4d\samples\GoogleTranslator;modules\translator4d\src</DCC_UnitSearchPath>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;vclactnband;vclFireDAC;DataSnapFireDAC;svnui;tethering;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;svn;Intraweb;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;fmx;fmxdae;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;DataSnapCommon;DataSnapConnectors;VCLRESTComponents;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;DataSnapClient;bindcompdbx;IndyIPCommon;vcl;DBXSybaseASEDriver;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;TeeDB;emshosting;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;FMXTee;DbxCommonDriver;ibxpress;Tee;DataSnapServer;xmlrtl;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;DBXInformixDriver;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -105,6 +106,20 @@
         </DelphiCompile>
         <DCCReference Include="src\view\DelphiToHero.View.Main.pas">
             <Form>frmMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\styles\DelphiToHero.View.Styles.Colors.pas"/>
+        <DCCReference Include="src\view\pages\DelphiToHero.View.Pages.Principal.pas">
+            <Form>frmPagePrincipal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\routers\DelphiToHero.View.Routers.pas"/>
+        <DCCReference Include="src\view\pages\DelphiToHero.View.Pages.Form.Template.pas">
+            <Form>frmTemplate</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\pages\DelphiToHero.View.Pages.Usuarios.pas">
+            <Form>frmPageUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
